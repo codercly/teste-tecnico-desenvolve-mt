@@ -16,7 +16,7 @@ import { IFilter } from "@/types/Filters";
 export function SearchBar({ filters }: { filters: IFilter }) {
 	const form = useForm<IFilter>({
 		defaultValues: {
-			name: filters.name,
+			nome: filters.nome,
 			sexo: filters.sexo ?? "all",
 			status: filters.status ?? "all",
 		},
@@ -33,7 +33,7 @@ export function SearchBar({ filters }: { filters: IFilter }) {
 				<form className="flex flex-wrap items-center gap-2">
 					<FormField
 						control={form.control}
-						name="name"
+						name="nome"
 						render={({ field }) => (
 							<FormItem className="relative col-span-full md:col-span-1">
 								<Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
