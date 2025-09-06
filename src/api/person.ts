@@ -17,7 +17,7 @@ export const getPeople = async (filter: IFilter) => {
 export const getPeopleById = async (id: number) => {
   const response = await api.get<IPessoaDesaparecida>(`/v1/pessoas/${id}`);
 
-  console.log(response.data);
+  
   return response.data;
 };
 

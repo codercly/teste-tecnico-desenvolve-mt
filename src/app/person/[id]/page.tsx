@@ -15,7 +15,7 @@ export default function Page() {
     useEffect(() => {
         const fetchData = async () => {
             const pessoa = await getPeopleById(Number(id));
-            console.log(pessoa);
+            
             setPerson(pessoa);
         };
 

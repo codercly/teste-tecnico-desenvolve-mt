@@ -12,7 +12,6 @@ export function PersonDetails({ person }: { person: IPessoaDesaparecida | null }
     const statusText = person?.ultimaOcorrencia?.dataLocalizacao ? "DESAPARECIDO" : "LOCALIZADO"
     const StatusIcon = person?.ultimaOcorrencia?.dataLocalizacao ? AlertTriangle : CheckCircle;
 
-    console.log('person', person);
 
     return (
         <div className="space-y-6">

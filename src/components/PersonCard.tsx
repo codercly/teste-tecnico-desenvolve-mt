@@ -8,7 +8,6 @@ export function PersonCard({ person }: { person: IPessoaDesaparecida }) {
     const statusColor = person.ultimaOcorrencia.dataLocalizacao ? "secondary" : "destructive"
     const statusText = person.ultimaOcorrencia.dataLocalizacao ? "LOCALIZADO" : "DESAPARECIDO"
 
-    console.log('person', person);
 
     return (
         <Link href={`/person/${person.id}`}>
