@@ -26,9 +26,6 @@ export default function Page() {
         <div className="min-h-screen bg-background">
             <div className="container mx-auto px-4 py-8">
                 <PersonDetails person={person} />
-                <div className="mt-8">
-                    {/* <ReportForm personId={person.id} /> */}
-                </div>
             </div>
         </div>
     )

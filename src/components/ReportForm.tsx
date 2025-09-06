@@ -74,7 +74,7 @@ export default function ReportForm({ ocoId }: { ocoId: number }) {
       <Dialog>
         <DialogTrigger asChild>
           <Button variant="outline">
-            Tem mais informações sobre esta pessoa ? entao clique aqui
+            Tem mais informações sobre esta pessoa ? clique aqui
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">

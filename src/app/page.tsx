@@ -23,14 +23,17 @@ export default async function Home({
       <Header />
       <main className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-foreground mb-4 text-balance">Pessoas Desaparecidas e Localizadas</h1>
+          {/* <h1 className="text-4xl font-bold text-foreground mb-4 text-balance">Pessoas Desaparecidas e Localizadas</h1> */}
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
             Ajude a reunir famílias. Procure por pessoas desaparecidas ou registre informações sobre pessoas
             localizadas.
           </p>
         </div>
 
-        <SearchBar filters={filters} />
+        <div className="flex justify-center items-center">
+          <SearchBar filters={filters} />
+        </div>
+        
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
 
@@ -38,7 +41,7 @@ export default async function Home({
             <PersonCard key={person.id} person={person} />
           ))}
         </div>
-        <div>
+        <div className="mt-8 flex justify-center">
           <PaginatedPersons searchParams={filters} pagination={data} />
         </div>
       </main>
