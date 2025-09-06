@@ -15,6 +15,7 @@ import {
 import { IPessoaDesaparecida } from '@/types/Person'
 import { Button } from './ui/button'
 import ReportForm from './ReportForm'
+import Image from 'next/image'
 
 export function PersonDetails({
   person,
@@ -51,10 +52,12 @@ export function PersonDetails({
             <CardContent className="p-0">
               <div className="relative">
                 {person?.urlFoto ? (
-                  <img
+                  <Image
                     src={person?.urlFoto || '/placeholder.svg'}
                     alt={person?.nome}
                     className="w-full h-80 object-cover rounded-t-lg"
+                    width={500}
+                    height={500}
                   />
                 ) : (
                   <div className="h-80 bg-gradient-to-br from-muted/50 to-muted flex items-center justify-center rounded-t-lg">
@@ -111,7 +114,7 @@ export function PersonDetails({
                 </label>
                 <p className="text-base mt-1">
                   {
-                    person?.ultimaOcorrencia?.ocorrenciaEntrevDesapDTO?.informacao
+                    person?.ultimaOcorrencia?.ocorrenciaEntrevDesapDTO?.informacao ? ( person?.ultimaOcorrencia?.ocorrenciaEntrevDesapDTO?.informacao ) : ( 'Não informado')
                   }
                 </p>
               </div>

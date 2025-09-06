@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Calendar, MapPin, Clock, User } from 'lucide-react'
 import { IPessoaDesaparecida } from '@/types/Person'
+import Image from 'next/image'
 
 export function PersonCard({ person }: { person: IPessoaDesaparecida }) {
   const statusColor = person.ultimaOcorrencia.dataLocalizacao
@@ -19,10 +20,12 @@ export function PersonCard({ person }: { person: IPessoaDesaparecida }) {
           <div className="relative overflow-hidden">
             {person.urlFoto ? (
               <div className="relative h-56 overflow-hidden">
-                <img
-                  src={person.urlFoto || '/placeholder.svg'}
+                <Image
+                  src={person.urlFoto}
                   alt={`Foto de ${person.nome}`}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  width={500}
+				  height={500}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
@@ -46,10 +49,9 @@ export function PersonCard({ person }: { person: IPessoaDesaparecida }) {
                 {person.nome}
               </h3>
               <p className="text-muted-foreground font-semibold">
-                {person?.idade ? `${person?.idade} anos` : 'não informado'}
+                Idade: {person?.idade ? `${person?.idade} anos` : 'não informado'}
               </p>
             </div>
-
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2 text-muted-foreground">
                 <MapPin className="w-4 h-4" />

@@ -15,6 +15,7 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 import {
   Dialog,
   DialogContent,
@@ -70,118 +71,123 @@ export default function ReportForm({ ocoId }: { ocoId: number }) {
   }
 
   return (
-    <div>
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button variant="outline">
-            Tem mais informações sobre esta pessoa ? clique aqui
-          </Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>Informações adicionais</DialogTitle>
-            <DialogDescription>
-              Preencha o formulário abaixo para enviar informações adicionais
-              sobre a pessoa desaparecida. Sua contribuição é muito importante
-              para ajudar na busca e localização dela.
-            </DialogDescription>
-          </DialogHeader>
-          <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
-              <FormField
-                control={form.control}
-                name="informacao"
-                render={({ field }) => (
-                  <FormItem className="mb-4">
-                    <FormLabel>Informação</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="Informe algo que possa ajudar na localização"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormDescription>
-                      Descreva a informação que você possui.
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline" className="w-full sm:w-auto rounded-2xl shadow-md">
+          Tem mais informações sobre esta pessoa? Clique aqui
+        </Button>
+      </DialogTrigger>
 
-              <FormField
-                control={form.control}
-                name="descricao"
-                render={({ field }) => (
-                  <FormItem className="mb-4">
-                    <FormLabel> Descrição</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="Descreva a situação ou qualquer detalhe relevante"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormDescription>
-                      Descreva a situação ou qualquer detalhe relevante.
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="data"
-                render={({ field }) => (
-                  <FormItem className="mb-4">
-                    <FormLabel>Data</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="Informe a data"
-                        type="date"
-                        {...field}
-                        value={String(field.value)}
-                      />
-                    </FormControl>
-                    <FormDescription>
-                      Descreva a situação ou qualquer detalhe relevante.
-                    </FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="files"
-                render={() => (
-                  <FormItem>
-                    <FormLabel>Arquivos</FormLabel>
-                    <FormControl>
-                      <Input
-                        onChange={handleFileChange}
-                        size={5}
-                        accept="image/*"
-                        type="file"
-                        multiple
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+      <DialogContent className="sm:max-w-lg rounded-2xl p-6">
+        <DialogHeader className="space-y-2">
+          <DialogTitle className="text-xl font-semibold">
+            Informações adicionais
+          </DialogTitle>
+          <DialogDescription className="text-sm text-muted-foreground">
+            Preencha o formulário abaixo para enviar informações adicionais sobre
+            a pessoa desaparecida. Sua contribuição é muito importante para ajudar
+            na busca e localização dela.
+          </DialogDescription>
+        </DialogHeader>
 
-              <DialogFooter>
-                <DialogClose asChild>
-                  <Button variant="outline">Cancelar</Button>
-                </DialogClose>
-                <Button disabled={form.formState.isSubmitting} type="submit">
-                  {form.formState.isSubmitting
-                    ? 'Enviando...'
-                    : 'Enviar informação'}
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <FormField
+              control={form.control}
+              name="informacao"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Informação</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="Ex: Foi visto na praça central"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormDescription>
+                    Digite de forma breve a informação que você possui.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="descricao"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Descrição</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder="Descreva em mais detalhes a situação ou qualquer detalhe relevante..."
+                      className="resize-none"
+                      rows={4}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormDescription>
+                    Forneça o máximo de detalhes que puder.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="data"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Data</FormLabel>
+                  <FormControl>
+                    <Input type="date" {...field} value={String(field.value)} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="files"
+              render={() => (
+                <FormItem>
+                  <FormLabel>Arquivos (opcional)</FormLabel>
+                  <FormControl>
+                    <Input
+                      onChange={handleFileChange}
+                      accept="image/*"
+                      type="file"
+                      multiple
+                    />
+                  </FormControl>
+                  <FormDescription>
+                    Você pode enviar fotos ou documentos que ajudem na
+                    identificação.
+                  </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <DialogFooter className="flex justify-end gap-3">
+              <DialogClose asChild>
+                <Button variant="outline" className="rounded-lg">
+                  Cancelar
                 </Button>
-              </DialogFooter>
-            </form>
-          </Form>
-        </DialogContent>
-      </Dialog>
-    </div>
+              </DialogClose>
+              <Button
+                disabled={form.formState.isSubmitting}
+                type="submit"
+                className="rounded-lg"
+              >
+                {form.formState.isSubmitting ? 'Enviando...' : 'Enviar informação'}
+              </Button>
+            </DialogFooter>
+          </form>
+        </Form>
+      </DialogContent>
+    </Dialog>
   )
 }
