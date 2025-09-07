@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Calendar, MapPin, Clock, User } from 'lucide-react'
+import { Calendar, MapPin, User } from 'lucide-react'
 import { IPessoaDesaparecida } from '@/types/Person'
 import Image from 'next/image'
 
@@ -25,7 +25,7 @@ export function PersonCard({ person }: { person: IPessoaDesaparecida }) {
                   alt={`Foto de ${person.nome}`}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   width={500}
-				  height={500}
+				          height={500}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>

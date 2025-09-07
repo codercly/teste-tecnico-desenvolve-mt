@@ -2,6 +2,7 @@ import api from '@/lib/axiosConfig'
 import { IAditionalInfo, IPessoaDesaparecida } from '@/types/Person'
 import { IPaginatedResponse } from '@/types/Pageble'
 import { IFilter } from '@/types/Filters'
+import axios from 'axios'
 
 export const getPeople = async (filter: IFilter) => {
   try {
@@ -13,8 +14,14 @@ export const getPeople = async (filter: IFilter) => {
     )
 
     return response.data
-  } catch (error: any) {
-    throw new Error(error.response?.data?.message || 'Erro ao carregar pessoas')
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(
+        error.response?.data?.message || 'Erro ao carregar pessoas'
+      )
+    }
+
+    throw new Error('Erro desconhecido')
   }
 }
 
@@ -23,8 +30,13 @@ export const getPeopleById = async (id: number) => {
     const response = await api.get<IPessoaDesaparecida>(`/v1/pessoas/${id}`)
 
     return response.data
-  } catch (error: any) {
-    throw new Error(error.response?.data?.message || 'Erro ao carregar pessoa')
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(
+        error.response?.data?.message || 'Erro ao carregar pessoa'
+      )
+    }
+    throw new Error('Erro desconhecido')
   }
 }
 
@@ -42,8 +54,11 @@ export async function addData(data: IAditionalInfo) {
     console.log(response.data)
     return response.data
   } catch (error) {
-    throw new Error(
-      error.response?.data?.message || 'Erro ao enviar informações adicionais'
-    )
+    if (axios.isAxiosError(error)) {
+      throw new Error(
+        error.response?.data?.message || 'Erro ao enviar informações adicionais'
+      )
+    }
+    throw new Error('Erro desconhecido')
   }
 }

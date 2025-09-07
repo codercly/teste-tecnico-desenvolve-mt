@@ -2,15 +2,11 @@ import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import {
-  Calendar,
   MapPin,
-  Clock,
-  Phone,
   AlertTriangle,
   CheckCircle,
   User,
   ArrowLeft,
-  Pen,
 } from 'lucide-react'
 import { IPessoaDesaparecida } from '@/types/Person'
 import { Button } from './ui/button'
@@ -145,9 +141,10 @@ export function PersonDetails({
                         Data localização
                       </label>
                       <p className="text-base font-medium">
-                        {new Date(
-                          person?.ultimaOcorrencia?.dataLocalizacao
-                        ).toLocaleDateString('pt-BR')}
+                        {
+                          person?.ultimaOcorrencia?.dataLocalizacao ? new Date(person?.ultimaOcorrencia?.dataLocalizacao).toLocaleDateString('pt-BR') : ( 'Não informado' )
+                        }
+                        
                       </p>
                     </>
                   ) : (
@@ -156,9 +153,9 @@ export function PersonDetails({
                         Data desaparecimento
                       </label>
                       <p className="text-base font-medium">
-                        {new Date(
-                          person?.ultimaOcorrencia?.dtDesaparecimento
-                        ).toLocaleDateString('pt-BR')}
+                        {
+                          person?.ultimaOcorrencia?.dtDesaparecimento ? new Date(person?.ultimaOcorrencia?.dtDesaparecimento).toLocaleDateString('pt-BR') : ( 'Não informado' )
+                        }
                       </p>
                     </>
                   )}
@@ -179,7 +176,7 @@ export function PersonDetails({
           </Card>
 
           <div className="mt-4">
-            <ReportForm ocoId={person?.ultimaOcorrencia?.ocoId} />
+            <ReportForm ocoId={person?.ultimaOcorrencia.ocoId} />
           </div>
         </div>
       </div>
