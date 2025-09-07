@@ -14,9 +14,9 @@ import ReportForm from './ReportForm'
 import Image from 'next/image'
 
 export function PersonDetails({
-  person,
+  person
 }: {
-  person: IPessoaDesaparecida | null
+  person: IPessoaDesaparecida
 }) {
   const statusColor = person?.ultimaOcorrencia?.dataLocalizacao
     ? 'secondary'
@@ -176,7 +176,7 @@ export function PersonDetails({
           </Card>
 
           <div className="mt-4">
-            <ReportForm ocoId={person?.ultimaOcorrencia.ocoId} />
+            <ReportForm ocoId={person.ultimaOcorrencia.ocoId} />
           </div>
         </div>
       </div>
