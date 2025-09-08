@@ -4,7 +4,7 @@ import { IPaginatedResponse } from '@/types/Pageble'
 import { IFilter } from '@/types/Filters'
 import axios from 'axios'
 
-export const getPeople = async (filter: IFilter) => {
+export const getPersons = async (filter: IFilter) => {
   try {
     const response = await api.get<IPaginatedResponse<IPessoaDesaparecida>>(
       `/v1/pessoas/aberto/filtro`,
@@ -25,7 +25,7 @@ export const getPeople = async (filter: IFilter) => {
   }
 }
 
-export const getPeopleById = async (id: number) => {
+export const getPersonsById = async (id: number) => {
   try {
     const response = await api.get<IPessoaDesaparecida>(`/v1/pessoas/${id}`)
 
@@ -40,7 +40,7 @@ export const getPeopleById = async (id: number) => {
   }
 }
 
-export async function addData(data: IAditionalInfo) {
+export async function addPersonData(data: IAditionalInfo) {
   try {
     const response = await api.post(
       '/v1/ocorrencias/informacoes-desaparecido',
@@ -51,8 +51,8 @@ export async function addData(data: IAditionalInfo) {
         },
       }
     )
-    console.log(response.data)
     return response.data
+
   } catch (error) {
     if (axios.isAxiosError(error)) {
       throw new Error(

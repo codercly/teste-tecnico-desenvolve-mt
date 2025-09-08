@@ -1,4 +1,4 @@
-import { getPeople } from '@/api/person'
+import { getPersons } from '@/api/persons'
 import { Header } from '@/components/Header'
 import { PersonCard } from '@/components/PersonCard'
 import { SearchBar } from '@/components/SearchBar'
@@ -14,12 +14,12 @@ export default async function Home({
   searchParams: Promise<IFilter>
 }) {
   const filters = await searchParams
-  const data = getPeople(filters)
+  const data = getPersons(filters)
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="container mx-auto px-4 py-8">  
+      <main className="container mx-auto px-4 py-8">
         <div className="flex justify-center items-center">
           <SearchBar filters={filters} />
         </div>

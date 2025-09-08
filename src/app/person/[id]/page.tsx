@@ -1,5 +1,5 @@
 import React from 'react'
-import { getPeopleById } from '@/api/person'
+import { getPersonsById } from '@/api/persons'
 
 import { PersonDetails } from '@/components/PersonDetails'
 
@@ -9,7 +9,7 @@ export default async function Page({
   params: Promise<{ id: string }>
 }) {
   const { id } = await params
-  const person = await getPeopleById(Number(id))
+  const person = await getPersonsById(Number(id))
 
   return (
     <div className="min-h-screen bg-background">

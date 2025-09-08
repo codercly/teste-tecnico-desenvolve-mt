@@ -1,10 +1,9 @@
-// Interface para detalhes da ocorrência
 interface OcorrenciaEntrevDesapDTO {
 	informacao: string | null;
 	vestimentasDesaparecido: string;
 }
 
-// Interface para a última ocorrência
+
 interface UltimaOcorrencia {
 	dtDesaparecimento: string;
 	dataLocalizacao: string | null;	
@@ -14,7 +13,6 @@ interface UltimaOcorrencia {
 	ocoId: number;
 }
 
-// Interface para cada pessoa desaparecida
 export interface IPessoaDesaparecida {
 	id: number;
 	nome: string;
@@ -24,7 +22,6 @@ export interface IPessoaDesaparecida {
 	urlFoto: string | null;
 	ultimaOcorrencia: UltimaOcorrencia;
 }
-
 
 export interface IAditionalInfo {
 	informacao: string;

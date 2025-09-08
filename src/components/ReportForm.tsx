@@ -24,7 +24,7 @@ import {
   DialogTrigger,
 } from '@radix-ui/react-dialog'
 import { DialogClose, DialogFooter, DialogHeader } from './ui/dialog'
-import { addData } from '@/api/person'
+import { addPersonData } from '@/api/persons'
 import { toast } from 'sonner'
 
 const formSchema = z.object({
@@ -50,7 +50,7 @@ export default function ReportForm({ ocoId }: { ocoId: number }) {
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    const res = await addData({
+    const res = await addPersonData({
       data: values.data,
       informacao: values.informacao,
       descricao: values.descricao,

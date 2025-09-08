@@ -26,10 +26,6 @@ export function SearchBar({ filters }: { filters: IFilter }) {
     <div className="mb-8 space-y-4 w-full">
       <Form {...form}>
         <form className="flex flex-wrap items-center gap-2 justify-center">
-          {/* <div className="flex items-center gap-2 text-lg font-semibold text-foreground">
-            <Filter className="h-5 w-5" />
-            Filtros de Busca
-          </div> */}
           <FormField
             control={form.control}
             name="nome"
