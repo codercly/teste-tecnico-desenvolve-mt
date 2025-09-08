@@ -48,12 +48,12 @@ A aplicação consome a API da Polícia Judiciária Civil de Mato Grosso para **
 #### 2. Executando com Docker
 
 **Pré-requisitos:**
-* Docker Desktop instalado e em execução.
+* Docker instalado e em execução.
 
 **Passos:**
 1.  Clone o repositório.
 2.  Navegue até a pasta do projeto.
-3.  Execute Docker:
+3.  Execute o Docker:
 ```bash
     docker compose up.
     #or
