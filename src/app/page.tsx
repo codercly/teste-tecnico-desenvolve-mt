@@ -3,15 +3,15 @@ import { Header } from '@/components/Header'
 import { PersonCard } from '@/components/PersonCard'
 import { SearchBar } from '@/components/SearchBar'
 import { PaginatedPersons } from '@/components/PaginatedPersons'
-import { IFilter } from '@/types/Filters'
-import { IPessoaDesaparecida } from '@/types/Person'
+import { Filter } from '@/types/filters'
+import { IPessoaDesaparecida } from '@/types/person'
 import { Suspense } from 'react'
 import { Loader } from 'lucide-react'
 
 export default async function Home({
   searchParams,
 }: {
-  searchParams: Promise<IFilter>
+  searchParams: Promise<Filter>
 }) {
   const filters = await searchParams
   const data = getPersons(filters)

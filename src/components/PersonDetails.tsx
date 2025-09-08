@@ -8,7 +8,7 @@ import {
   User,
   ArrowLeft,
 } from 'lucide-react'
-import { IPessoaDesaparecida } from '@/types/Person'
+import { IPessoaDesaparecida } from '@/types/person'
 import { Button } from './ui/button'
 import ReportForm from './ReportForm'
 import Image from 'next/image'

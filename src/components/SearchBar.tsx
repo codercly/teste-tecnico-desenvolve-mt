@@ -11,10 +11,10 @@ import {
 import { Form, FormControl, FormField, FormItem } from './ui/form'
 import { useForm } from 'react-hook-form'
 import { Button } from './ui/button'
-import { IFilter } from '@/types/Filters'
+import { Filter } from '@/types/filters'
 
-export function SearchBar({ filters }: { filters: IFilter }) {
-  const form = useForm<IFilter>({
+export function SearchBar({ filters }: { filters: Filter }) {
+  const form = useForm<Filter>({
     defaultValues: {
       nome: filters.nome,
       sexo: filters.sexo ?? 'all',

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Calendar, MapPin, User } from 'lucide-react'
-import { IPessoaDesaparecida } from '@/types/Person'
+import { IPessoaDesaparecida } from '@/types/person'
 import Image from 'next/image'
 
 export function PersonCard({ person }: { person: IPessoaDesaparecida }) {

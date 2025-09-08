@@ -1,5 +1,5 @@
 "use client";
-import { IFilter } from "@/types/Filters";
+import { Filter } from "@/types/filters";
 import { use, useState } from "react";
 import { Pagination, PaginationContent, PaginationItem } from "./ui/pagination";
 import { useRouter } from "next/navigation";
@@ -10,13 +10,13 @@ import {
     MoreHorizontalIcon,
 } from "lucide-react";
 
-import { IPessoaDesaparecida } from "@/types/Person";
-import { IPaginatedResponse } from "@/types/Pageble";
+import { IPessoaDesaparecida } from "@/types/person";
+import { IPaginatedResponse } from "@/types/pagination";
 export function PaginatedPersons({
     searchParams,
     pagination: paginatedPersons,
 }: {
-    searchParams: IFilter;
+    searchParams: Filter;
     pagination: Promise<IPaginatedResponse<IPessoaDesaparecida>>;
 }) {
     const pagination = use(paginatedPersons);

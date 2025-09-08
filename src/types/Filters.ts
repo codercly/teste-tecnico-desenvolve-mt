@@ -1,4 +1,4 @@
-export interface IFilter {
+export interface Filter {
     id: string;
     nome: string;
     status: 'DESAPARECIDO' | 'LOCALIZADO';
